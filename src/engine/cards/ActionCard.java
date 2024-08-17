@@ -7,7 +7,7 @@ import factory.ActionFactory;
 
 public class ActionCard extends Card{
 
-    public ActionCard(CardAction action, CardColor color, String label) {
+    public ActionCard(CardColor color, CardAction action, String label) {
         super.actionEffect = ActionFactory.getAction(action);
         super.setColor(color);
         super.setLabel(label);
