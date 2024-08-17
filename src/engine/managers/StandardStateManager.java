@@ -21,6 +21,10 @@ public class StandardStateManager implements StateManager {
 
     private void changeGameStatus(Player player){
         game.getPlayers().remove(player);
+        game.getGameMediator().setNumberOfRemainingPlayers(
+                game.getGameMediator().getNumberOfRemainingPlayers() - 1
+        );
+
         System.out.println("Player : " + player.getName() + " has finished, the game will continue with the remaining players");
     }
 

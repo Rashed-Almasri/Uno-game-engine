@@ -1,6 +1,5 @@
 package engine;
 
-import engine.cards.Card;
 import engine.players.Player;
 import enums.CardAction;
 import enums.CardColor;
@@ -19,6 +18,7 @@ public class OfficialUno extends Game{
         super.setStateManager(StandardStateManager.getInstance(this));
 
         initDeck();
+        dealCardsToPlayers();
     }
 
     @Override
@@ -54,11 +54,15 @@ public class OfficialUno extends Game{
         }
 
         getGameDeck().shuffle();
+
+    }
+
+    @Override
+    protected void dealCardsToPlayers() {
         for(Player player : getPlayers()) {
             getCardManager().drawCards(player, 7);
         }
     }
-
 
     @Override
     protected void play() {

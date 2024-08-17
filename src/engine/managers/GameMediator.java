@@ -1,7 +1,6 @@
 package engine.managers;
 import engine.Game;
 import engine.players.Player;
-import enums.CardColor;
 import engine.cards.Card;
 
 import java.util.List;
@@ -66,6 +65,7 @@ public class GameMediator {
 
         if(loseTurn(currentPlayer)){
             System.out.println("Player " + currentPlayer.getName() + " has lost turn due to no valid card to play");
+            game.getTurnManager().moveToNextPlayer();
             return;
         }
 
@@ -81,6 +81,7 @@ public class GameMediator {
 
         game.getStateManager().hasWon(currentPlayer);
         game.getTurnManager().moveToNextPlayer();
+
     }
 
 

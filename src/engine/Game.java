@@ -94,6 +94,7 @@ public abstract class Game {
         this.noValidCardPenalty = noValidCardPenalty;
     }
 
+    protected abstract void dealCardsToPlayers();
     protected abstract void initDeck();
     protected abstract void play();
     public abstract boolean winingCondition(Player player);

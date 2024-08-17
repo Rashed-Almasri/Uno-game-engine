@@ -35,13 +35,12 @@ public class StandardCardManager implements CardManager {
     }
 
     @Override
-    public void changeGameColor(CardColor colorToPlay) {
-        this.colorToPlay = colorToPlay;
+    public void changeGameColor(CardColor color) {
+        this.colorToPlay = color;
     }
 
     @Override
     public void printColorToPlay(){
-//        System.out.println(game.getDiscardPile().getTopCard().toString());
         System.out.println("Color to play : " + (colorToPlay == null ? "Any color is valid !" : colorToPlay.toString()));
     }
 
@@ -69,7 +68,7 @@ public class StandardCardManager implements CardManager {
         }
 
         Card topCard = game.getDiscardPile().getTopCard();
-        return (card instanceof WildCard || card instanceof WildActionCard || card.getLabel().equals(topCard.getLabel()) || card.getColor() == topCard.getColor());
+        return (card instanceof WildCard || card instanceof WildActionCard || card.getLabel().equals(topCard.getLabel()) || card.getColor() == colorToPlay);
     }
 
     @Override

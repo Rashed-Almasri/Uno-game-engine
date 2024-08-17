@@ -58,6 +58,15 @@ public class StandardPlayerInputManager implements PlayerInputManager {
         return (Integer.parseInt(input) >= 1 && Integer.parseInt(input) <= playerHand.getSize());
     }
 
+    private CardColor getColorValueOfString(String input){
+        return switch (input) {
+            case "red" -> CardColor.Red;
+            case "blue" -> CardColor.Blue;
+            case "green" -> CardColor.Green;
+            case "yellow" -> CardColor.Yellow;
+            default -> null;
+        };
+    }
     @Override
     public CardColor getColor() {
         String input = getInput("Choose a color");
@@ -65,7 +74,7 @@ public class StandardPlayerInputManager implements PlayerInputManager {
             input = getInput("Choose a valid color");
         }
 
-        return CardColor.valueOf(input.substring(0, 1).toUpperCase() + input.substring(1).toLowerCase());
+        return getColorValueOfString(input.toLowerCase());
     }
 
     @Override

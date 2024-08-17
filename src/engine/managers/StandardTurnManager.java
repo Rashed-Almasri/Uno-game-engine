@@ -13,7 +13,7 @@ public class StandardTurnManager implements TurnManager {
 
     private StandardTurnManager(List<Player> players){
         this.players = players;
-        clockWiseDirection = false;
+        clockWiseDirection = true;
         currentPlayerIndex = 0;
     }
 
@@ -48,7 +48,6 @@ public class StandardTurnManager implements TurnManager {
     @Override
     public void reverseGameDirection() {
         clockWiseDirection = !clockWiseDirection;
-        moveToNextPlayer();
     }
 
     @Override
