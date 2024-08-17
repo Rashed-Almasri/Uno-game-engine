@@ -57,7 +57,7 @@ public class StandardCardManager implements CardManager {
     @Override
     public CardColor getColorToPlay(){
         if(game.getDiscardPile().isEmpty()){
-            return CardColor.AnyThing;
+            return null;
         }
         return game.getDiscardPile().getTopCard().getColor();
     }
